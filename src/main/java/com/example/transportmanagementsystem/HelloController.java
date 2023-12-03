@@ -4,10 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 
@@ -21,6 +18,8 @@ public class HelloController {
     private TextField username;
     @FXML
     private PasswordField password;
+    @FXML
+    private Hyperlink createAccPgBtn;
 
     public void handleLoginBtn() throws Exception{
         String userName = username.getText();
@@ -33,5 +32,10 @@ public class HelloController {
             window.setScene(new Scene(root, 691, 469));
         }
         loginStatusLabel.setText("login failed");
+    }
+    public void createAccPage() throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("create-student.fxml"));
+        Stage window = (Stage) createAccPgBtn.getScene().getWindow();
+        window.setScene(new Scene(root, 691, 469));
     }
 }

@@ -1,2 +1,4 @@
 student 1,1,pas001,acc-no-001,3,Hostalite
 student 2,2,pas002,acc-no-002,2,NonHostalite
+student 3,3,pas003,acc-no-003,3,Hostalite
+student 4,4,pas004,acc-no-004,5,NonHostalite

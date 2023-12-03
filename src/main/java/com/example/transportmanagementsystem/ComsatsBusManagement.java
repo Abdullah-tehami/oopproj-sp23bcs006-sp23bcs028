@@ -21,6 +21,7 @@ public class ComsatsBusManagement extends Application {
     private static Route selectedRoute;
     private static Payment paymentObject;
     private static BusPass busPass;
+    private static int studentCount = 0;
 //    private static int vanRouteCount;
 
     //////////////////////////////
@@ -46,6 +47,27 @@ public class ComsatsBusManagement extends Application {
             }
         }
         return false;
+    }
+    public static boolean checkUniqueUser(String StudentName){
+        for(int i = 0; i < students.size(); i++){
+            if(students.get(i).getName().equals(StudentName)){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static boolean createAccount(String StudentName, String password, String confirmPass, String accNo, String semester, StudentType studentType){
+        if(password.equals(confirmPass) && checkUniqueUser(StudentName)){
+            studentCount++;
+            Student s1 = new Student(StudentName, studentCount, password, accNo, semester, studentType);
+            students.add(s1);
+            writeStudentsToFile("students_written.txt");
+            return true;
+        }
+        else {
+            return false;
+        }
+
     }
     public static void logout(){
         currentUser = null;
@@ -276,10 +298,11 @@ public class ComsatsBusManagement extends Application {
                     int id = Integer.parseInt(parts[1].trim());
                     String password = parts[2].trim();
                     String accountNumber = parts[3].trim();
-                    int semester = Integer.parseInt(parts[4].trim());
+                    String semester = parts[4].trim();
                     StudentType type = StudentType.valueOf(parts[5].trim());
 
                     students.add(new Student(name, id, password, accountNumber, semester, type));
+                    studentCount++;
                 }
             }
         } catch (IOException e) {
@@ -290,7 +313,7 @@ public class ComsatsBusManagement extends Application {
 
     public static void main(String[] args) {
         transports = new ArrayList<>();
-//        Bus b1 = new Bus("bus 001", 30, 20000, "Bus");
+//        Bus b1 = new Bus("bus 001", 30, 20000);
 //        Bus b2 = new Bus("bus 002", 30, 20000);
 //        Bus b3 = new Bus("bus 003", 30, 20000);
 //        Van v1 = new Van("van 001", 12, 35000);
@@ -315,8 +338,8 @@ public class ComsatsBusManagement extends Application {
 //        routes.add(r5);
 
         students=new ArrayList<>();
-//        Student s1 = new Student("student 1",001, "pas001", "acc-no-001",3,StudentType.Hostalite);
-//        Student s2 = new Student("student 2",002, "pas002", "acc-no-002",2,StudentType.NonHostalite);
+//        Student s1 = new Student("student 1",1, "pas001", "acc-no-001","3",StudentType.Hostalite);
+//        Student s2 = new Student("student 2",2, "pas002", "acc-no-002","2",StudentType.NonHostalite);
 //        students.add(s1);
 //        students.add(s2);
 

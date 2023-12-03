@@ -5,10 +5,10 @@ public class Student {
     private int id;
     private String password;
     private String accountNumber;
-    private int semester;
+    private String semester;
     private StudentType type;
 
-   public Student(String name,int id, String password, String accountNumber,int semester,StudentType type){
+   public Student(String name,int id, String password, String accountNumber,String semester,StudentType type){
         this.name=name;
         this.semester=semester;
         this.id=id;
@@ -44,6 +44,6 @@ public class Student {
                 "\nType: " + this.getType();
     }
     public String toFileString() {
-        return String.format("%s,%d,%s,%s,%d,%s", name, id, password, accountNumber, semester, type);
+        return String.format("%s,%d,%s,%s,%s,%s", name, id, password, accountNumber, semester, type);
     }
 }

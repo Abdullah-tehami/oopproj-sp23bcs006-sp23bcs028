@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.transportmanagementsystem.CreateStudentController">
+   <children>
+      <Label layoutX="305.0" layoutY="34.0" text="Create Account" />
+      <TextField fx:id="studentName" layoutX="215.0" layoutY="76.0" prefHeight="25.0" prefWidth="214.0" promptText="Name" />
+      <TextField fx:id="studentAccNo" layoutX="216.0" layoutY="235.0" prefHeight="25.0" prefWidth="214.0" promptText="Account Number" />
+      <TextField fx:id="studentSemester" layoutX="216.0" layoutY="274.0" prefHeight="25.0" prefWidth="214.0" promptText="Semester" />
+      <RadioButton fx:id="hostalite" layoutX="216.0" layoutY="346.0" mnemonicParsing="false" text="Hostalite">
+         <toggleGroup>
+            <ToggleGroup fx:id="studentType" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="nonHostalite" layoutX="344.0" layoutY="346.0" mnemonicParsing="false" text="NonHostalite" toggleGroup="$studentType" />
+      <Label layoutX="216.0" layoutY="315.0" text="Student Type:" />
+      <Button fx:id="createStudentBtn" layoutX="344.0" layoutY="381.0" mnemonicParsing="false" onAction="#createStudent" prefHeight="25.0" prefWidth="91.0" text="Create" />
+      <PasswordField fx:id="studentPassword" layoutX="216.0" layoutY="163.0" prefHeight="25.0" prefWidth="214.0" promptText="Password" />
+      <PasswordField fx:id="confirmPassword" layoutX="216.0" layoutY="200.0" prefHeight="25.0" prefWidth="214.0" promptText="Confirm Password" />
+      <Hyperlink fx:id="loginPgBtn" layoutX="394.0" layoutY="432.0" onAction="#loginPage" text="login" />
+      <Label layoutX="256.0" layoutY="435.0" text="Already have an account?" />
+      <Label fx:id="createAccStatus" contentDisplay="RIGHT" layoutX="217.0" layoutY="415.0" prefHeight="17.0" prefWidth="222.0" textAlignment="RIGHT" textFill="#da0a0a" />
+   </children>
+</AnchorPane>
